@@ -1,0 +1,51 @@
+body {
+  background: #F5F5F5; }
+
+h1 {
+  text-align: center;
+  line-height: 3; }
+
+.calendar {
+  margin: 50px 0;
+  position: relative; }
+  .calendar:before {
+    content: 'Week of the year ->';
+    position: relative;
+    right: 15px; }
+  .calendar:after {
+    content: '<- Age';
+    position: absolute;
+    top: 40px;
+    left: -50px;
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg); }
+
+.case {
+  width: calc( 100% / 52 - 5px);
+  height: calc( 100% / 52 - 5px);
+  display: inline-block;
+  border: 1.5px solid rgba(0, 0, 0, 0.31);
+  vertical-align: baseline;
+  border-radius: 25%;
+  float: left;
+  background: white;
+  margin: 2.5px; }
+  .case.checked {
+    background: #2196f4; }
+
+/*@include grandient-grid(4680);*/
+.date {
+  margin: 15px 0;
+  padding: 15px 0 35px 0;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey; }
+  .date input {
+    min-width: 100px; }
+
+.footer {
+  margin-top: 100px;
+  padding: 50px 50px;
+  background: rgba(37, 65, 194, 0.2);
+  width: 100%; }
+  .footer div {
+    float: left; }

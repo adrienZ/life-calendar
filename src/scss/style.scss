@@ -1,0 +1,90 @@
+@import "modules/variables.scss";
+@import "modules/mixins.scss";
+
+$size : calc( 100% / 52 - 5px );
+@mixin bg-gradient($start-colour, $end-colour) {
+  background-color: $start-colour;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($start-colour), to($end-colour));
+  background-image: -webkit-linear-gradient(top, $start-colour, $end-colour);
+  background-image:         linear-gradient(top, $start-colour, $end-colour);
+  filter:            progid:DXImageTransform.Microsoft.gradient(start-colourStr='#{$start-colour}', end-colourStr='#{$end-colour}');
+}
+
+@mixin grandient-grid($i){
+  @for $i from 1 through $i {
+    $opac: percentage(1 / $i);
+
+    .case:nth-child(#{$i}){
+      /*  @include bg-gradient(rgba(red,#{$opac}) blue);*/
+    }
+  }
+}
+
+body {
+  background:#F5F5F5;
+}
+
+h1 {
+  text-align:center;
+  line-height:3;
+}
+
+.calendar {
+  margin: 50px 0;
+  position:relative;
+  &:before {
+    content: 'Week of the year ->';
+    position:relative;
+    right: 15px;
+  }
+  &:after {
+    content: '<- Age';
+    position:absolute;
+    top:40px;
+    left:-50px;
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+}
+
+
+
+  .case {
+    width: $size ;
+    height: $size ;
+    display: inline-block;
+    border: 1.5px solid rgba(#000,.31);
+    vertical-align: baseline;
+    border-radius : 25%;
+    float: left;
+    background: white;
+    margin: 2.5px;
+    &.checked{
+      background:rgb(33,150,244);
+
+    }
+  }
+
+  /*@include grandient-grid(4680);*/
+
+
+  .date {
+    margin: 15px 0;
+    padding:15px 0 35px 0 ;
+    border-top : 1px solid lightgrey;
+    border-bottom : 1px solid lightgrey;
+    input {
+      min-width : 100px;
+    }
+  }
+
+
+  .footer {
+    margin-top: 100px;
+    padding: 50px 50px;
+    background : rgba(#2541c2,.2);
+    width: 100%;
+    div {
+      float:left;
+    }
+  }
